@@ -13,8 +13,7 @@ local page = core.pages.new()
 --#############################################################################
 local function onGetRequest()
 
-  --Generate the file path. Add parts as
-  --needed to match your file structure.
+  --Generate the file path. Add parts as needed to match your file structure.
   local filepath = fs.join(core.files.FilesDirectory, 'jsons', 'data.json')
 
   --Load a JSON data file directly.
@@ -25,8 +24,7 @@ local function onGetRequest()
     page.renderText(err)
   else
     --Render the JSON
-    --Use renderText, because the 
-    --content is already JSON encoded.
+    --Use renderText, because the content is already JSON encoded.
     page.renderText(result)
   end
 
