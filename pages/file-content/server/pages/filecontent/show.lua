@@ -2,7 +2,7 @@
 --# Show File Data
 --#############################################################################
 
---Load filesystem tools
+--Load filesystem tools (undocumented)
 local fs = require("coronium.fs")
 
 --Create the page object
