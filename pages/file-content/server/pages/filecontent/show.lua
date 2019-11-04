@@ -13,8 +13,12 @@ local page = core.pages.new()
 --#############################################################################
 local function onGetRequest()
 
+  --Generate the file path. Add parts as
+  --needed to match your file structure.
+  local filepath = fs.join(core.files.FilesDirectory, 'jsons', 'data.json')
+
   --Load a JSON data file directly.
-  local result, err = core.readfile(fs.join(core.files.FilesDirectory, 'jsons', 'data.json'), '*a')
+  local result, err = core.readfile(filepath, '*a')
 
   if not result then
     --Render the error
