@@ -15,7 +15,7 @@ local function onGetRequest()
 
   if not result then
     --Render the error
-    page.renderPlain(err)
+    page.renderText(err)
   else
     --Render the JSON
     page.renderJson(result)
