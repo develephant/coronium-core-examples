@@ -11,14 +11,25 @@ local page = core.pages.new()
 local function onGetRequest()
 
   --Call a custom server-side api method
-  local result, err = page.callApi("MyApi", "mongoget", {})
+  --By using this method, it is also available to the
+  --Corona client as well.
+  local doc, err = page.callApi("MyApi", "mongoget", {})
 
-  if not result then
+  --#############################################################################
+  --OR, for inline queries (this will NOT be callable by Corona api):
+  -- local db, err = core.mongo('mydb')
+  -- local toys = db:collection('toys')
+  -- local doc, err = toys:findOne({
+  --   color = "red"
+  -- })
+  --#############################################################################
+
+  if not doc then
     --Render the error
     page.renderText(err)
   else
     --Render the JSON
-    page.renderJson(result)
+    page.renderJson(doc)
   end
 
   --At this point the response has been rendered
